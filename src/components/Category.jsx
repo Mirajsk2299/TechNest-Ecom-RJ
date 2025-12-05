@@ -63,7 +63,7 @@ const Category = () => {
           }}
         >
           <div className="category-singleimg">
-            <img className="singlecat-img" src={laptop} />
+            <img className="singlecat-img" src={laptop} alt="Loading" />
 
             <div className="singleimg-txt">
               <h2>Computers</h2>
@@ -71,28 +71,28 @@ const Category = () => {
           </div>
 
           <div className="category-singleimg">
-            <img className="singlecat-img" src={phone} />
+            <img className="singlecat-img" src={phone} alt="Loading" />
             <div className="singleimg-txt">
               <h2>Mobile</h2>
             </div>
           </div>
 
           <div className="category-singleimg">
-            <img className="singlecat-img" src={drone} />
+            <img className="singlecat-img" src={drone} alt="Loading" />
 
             <div className="singleimg-txt">
               <h2>Drones & Cameras</h2>
             </div>
           </div>
           <div className="category-singleimg">
-            <img className="singlecat-img" src={sale} />
+            <img className="singlecat-img" src={sale} alt="Loading" />
 
             <div className="singleimg-txt">
               <h2>Sale</h2>
             </div>
           </div>
           <div className="category-singleimg">
-            <img className="singlecat-img" src={tablet} />
+            <img className="singlecat-img" src={tablet} alt="Loading" />
 
             <div className="singleimg-txt">
               <h2>Tablets</h2>
@@ -100,14 +100,14 @@ const Category = () => {
           </div>
 
           <div className="category-singleimg">
-            <img className="singlecat-img" src={bestsell} />
+            <img className="singlecat-img" src={bestsell} alt="Loading" />
 
             <div className="singleimg-txt">
               <h2>Best Sellers</h2>
             </div>
           </div>
           <div className="category-singleimg">
-            <img className="singlecat-img" src={hometv} />
+            <img className="singlecat-img" src={hometv} alt="Loading" />
 
             <div className="singleimg-txt">
               <h2>T.V & Home Cinemas</h2>
@@ -115,7 +115,7 @@ const Category = () => {
           </div>
 
           <div className="category-singleimg">
-            <img className="singlecat-img" src={watch} />
+            <img className="singlecat-img" src={watch} alt="Loading" />
 
             <div className="singleimg-txt">
               <h2>Wearable Tech</h2>
@@ -123,7 +123,7 @@ const Category = () => {
           </div>
 
           <div className="category-singleimg">
-            <img className="singlecat-img" src={speaker} />
+            <img className="singlecat-img" src={speaker} alt="Loading" />
 
             <div className="singleimg-txt">
               <h2>Speakers</h2>
@@ -131,7 +131,7 @@ const Category = () => {
           </div>
 
           <div className="category-singleimg">
-            <img className="singlecat-img" src={headphone} />
+            <img className="singlecat-img" src={headphone} alt="Loading" />
 
             <div className="singleimg-txt">
               <h2>Headphones</h2>

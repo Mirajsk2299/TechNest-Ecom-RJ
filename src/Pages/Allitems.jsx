@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Styles/Pages.css";
 import Allproducts from "../ProductsData/Allproducts.js";
 

@@ -58,7 +58,7 @@ const Bestseller = () => {
 
             {Bestsellerdata.slice(index, index + 4).map((item) => (
               <div className="card" key={item.id}>
-                <img src={item.image} alt={item.name} />
+                <img src={item.image} alt="Loading" />
                 {item.sale && <span className="sale-badge">Sale</span>}
                 <hr style={{ width: "100%" }} />
 

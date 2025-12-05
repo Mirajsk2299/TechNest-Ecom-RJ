@@ -44,6 +44,7 @@ const Bestprice = () => {
               objectFit: "cover",
               objectPosition: "left center",
             }}
+            alt="Loading"
           />
         </div>
 
