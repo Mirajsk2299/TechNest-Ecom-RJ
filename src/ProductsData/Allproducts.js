@@ -1,13 +1,13 @@
 import nanoled from "../assets/bestseller/class-nano-led.avif";
 import fitboot from "../assets/bestseller/sdk-portable-bt.avif";
-import quadcopter from "../assets/bestseller/hkitech-quadcopter.avif";
-import inears from "../assets/bestseller/inears-noise-cancellation.avif";
+// import quadcopter from "../assets/bestseller/hkitech-quadcopter.avif";
+// import inears from "../assets/bestseller/inears-noise-cancellation.avif";
 import jpgaming from "../assets/bestseller/jpgaming-laptop.avif";
-import sptablet from "../assets/bestseller/jp-space-tablet.avif";
-import megapixel from "../assets/bestseller/megapixel-waterproof.avif";
+// import sptablet from "../assets/bestseller/jp-space-tablet.avif";
+// import megapixel from "../assets/bestseller/megapixel-waterproof.avif";
 import oceanpro from "../assets/bestseller/ocean-pro11.avif";
 import shelled from "../assets/bestseller/shel-50-led.avif";
-import buds from "../assets/bestseller/white-buds-wireless.avif";
+// import buds from "../assets/bestseller/white-buds-wireless.avif";
 import zpixel from "../assets/bestseller/zpixel-max.avif";
 
 const ProductsData = [

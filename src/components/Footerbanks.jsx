@@ -28,35 +28,35 @@ const Footerbanks = () => {
         style={{ display: "flex", flexDirection: "row", gap: "4rem" }}
       >
         <div className="single-cards">
-          <img className="banks-img" src={Visa} />
+          <img className="banks-img" src={Visa} alt="Loading..." />
         </div>
 
         <div className="single-cards">
-          <img className="banks-img" src={Mastercard} />
+          <img className="banks-img" src={Mastercard} alt="Loading..." />
         </div>
 
         <div className="single-cards">
-          <img className="banks-img" src={AmeriacanExp} />
+          <img className="banks-img" src={AmeriacanExp} alt="Loading..." />
         </div>
 
         <div className="single-cards">
-          <img className="banks-img" src={Unionpay} />
+          <img className="banks-img" src={Unionpay} alt="Loading..." />
         </div>
 
         <div className="single-cards">
-          <img className="banks-img" src={JCB} />
+          <img className="banks-img" src={JCB} alt="Loading..." />
         </div>
 
         <div className="single-cards">
-          <img className="banks-img" src={Dinners} />
+          <img className="banks-img" src={Dinners} alt="Loading..." />
         </div>
 
         <div className="single-cards">
-          <img className="banks-img" src={Discover} />
+          <img className="banks-img" src={Discover} alt="Loading..." />
         </div>
 
         <div className="single-cards">
-          <img className="banks-img" src={Paypal} />
+          <img className="banks-img" src={Paypal} alt="Loading..." />
         </div>
       </div>
     </div>
