@@ -25,7 +25,7 @@ const Lastline = () => {
           Copyright © 2025 – All Rights Reserved, But feel free to get inspired
           !
         </p>
-        <p>Made With 💗Love By Miraj</p>
+        <p>Made With 💗 By Miraj</p>
       </div>
     </div>
   );

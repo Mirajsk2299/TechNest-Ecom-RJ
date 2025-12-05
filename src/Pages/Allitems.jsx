@@ -3,10 +3,6 @@ import "../Styles/Pages.css";
 import Allproducts from "../ProductsData/Allproducts.js";
 
 const Allitems = () => {
-  // const computers = Allproducts.filter(
-  //   (item) => item.category.toLowerCase() === "computers"
-  // );
-
   return (
     <div
       className="computer-pg"
@@ -15,11 +11,7 @@ const Allitems = () => {
       <div className="pgtop-bar">
         <div className="pages-name">
           <p>Home</p>
-          <p>All Products</p>
-        </div>
-
-        <div className="main-pgname">
-          <h1>All Products</h1>
+          <h4>All Products</h4>
         </div>
 
         <div className="sort-count">
@@ -55,25 +47,21 @@ const Allitems = () => {
                   borderRadius: "8px",
                 }}
               >
-                {/* image */}
                 <img
                   src={product.image}
                   alt={product.name}
                   style={{ width: "100%", height: "150px", objectFit: "cover" }}
                 />
 
-                {/* name */}
                 <h4>{product.name}</h4>
 
-                {/* prices */}
                 <p>
                   <span style={{ textDecoration: "line-through" }}>
                     ₹{product.oldPrice}
-                  </span>{" "}
+                  </span>
                   <strong>₹{product.currentPrice}</strong>
                 </p>
 
-                {/* productInfo */}
                 {product.productInfo && <p>{product.productInfo}</p>}
               </div>
             ))}

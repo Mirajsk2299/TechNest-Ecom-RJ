@@ -1,5 +1,6 @@
 import React from "react";
 import bestprice from "../assets/saveupto-laptop.avif";
+import { Link } from "react-router-dom";
 
 const Bestprice = () => {
   return (
@@ -76,23 +77,23 @@ const Bestprice = () => {
             <p style={{ fontSize: "18px" }}> Terms and conditions apply</p>
           </div>
 
-          {/* <div> */}
-          <button
-            className="bestprice-btn"
-            style={{
-              width: "10rem",
-              height: "3rem",
-              borderRadius: "25px",
-              border: "none",
-              backgroundColor: "blue",
-              color: "white",
-              fontSize: "20px",
-              cursor: "pointer",
-            }}
-          >
-            Shop
-          </button>
-          {/* </div> */}
+          <Link to="tablets">
+            <button
+              className="bestprice-btn"
+              style={{
+                width: "10rem",
+                height: "3rem",
+                borderRadius: "25px",
+                border: "none",
+                backgroundColor: "blue",
+                color: "white",
+                fontSize: "20px",
+                cursor: "pointer",
+              }}
+            >
+              Shop
+            </button>
+          </Link>
         </div>
 
         <div
@@ -100,7 +101,6 @@ const Bestprice = () => {
             position: "absolute",
             top: "10%",
             left: "62%",
-            // transform: "translateX(-50%)",
             backgroundColor: "red",
             color: "white",
             width: "9rem",
@@ -118,7 +118,6 @@ const Bestprice = () => {
             className="badge box"
             style={{
               transform: "rotate(20deg)",
-              // display: "inline-block",
             }}
           >
             <h1>

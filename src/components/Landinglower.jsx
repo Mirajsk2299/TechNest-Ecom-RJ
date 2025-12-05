@@ -1,6 +1,7 @@
 import React from "react";
 import rediphone from "../assets/rediphone-home.avif";
 import blueheadphone from "../assets/headphone-home.avif";
+import { Link } from "react-router-dom";
 
 const Landinglower = () => {
   return (
@@ -14,11 +15,6 @@ const Landinglower = () => {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        // padding: "1rem",
-        // placeItems: "center",
-        // display: "grid",
-        // gridTemplateColumns: "1fr 1fr",
-        // padding: "1rem",
       }}
     >
       <div
@@ -63,7 +59,6 @@ const Landinglower = () => {
               <h1
                 style={{
                   fontSize: "3rem",
-                  // fontFamily: '"Montserrat", sans-serif',
                 }}
               >
                 Up to <br /> 30% off
@@ -75,20 +70,22 @@ const Landinglower = () => {
             </div>
 
             <div className="lowerlandinf-btn">
-              <button
-                className="lwlanding-btn"
-                style={{
-                  height: "2.5rem",
-                  cursor: "pointer",
+              <Link to="mobiles">
+                <button
+                  className="lwlanding-btn"
+                  style={{
+                    height: "2.5rem",
+                    cursor: "pointer",
 
-                  width: "8rem",
-                  borderRadius: "20px",
-                  border: "none",
-                  transition: "all 0.3s ease",
-                }}
-              >
-                Shop
-              </button>
+                    width: "8rem",
+                    borderRadius: "20px",
+                    border: "none",
+                    transition: "all 0.3s ease",
+                  }}
+                >
+                  Shop
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -122,7 +119,6 @@ const Landinglower = () => {
               <h1
                 style={{
                   fontSize: "3rem",
-                  // fontFamily: '"Montserrat", sans-serif',
                 }}
               >
                 Take Your <br /> Sound <br />
@@ -135,19 +131,21 @@ const Landinglower = () => {
             </div>
 
             <div className="lowerlandinf-btn">
-              <button
-                className="lwlanding-btn"
-                style={{
-                  height: "2.5rem",
-                  cursor: "pointer",
-                  width: "8rem",
-                  borderRadius: "20px",
-                  border: "none",
-                  transition: "all 0.3s ease",
-                }}
-              >
-                Shop
-              </button>
+              <Link to="headphone">
+                <button
+                  className="lwlanding-btn"
+                  style={{
+                    height: "2.5rem",
+                    cursor: "pointer",
+                    width: "8rem",
+                    borderRadius: "20px",
+                    border: "none",
+                    transition: "all 0.3s ease",
+                  }}
+                >
+                  Shop
+                </button>
+              </Link>
             </div>
           </div>
         </div>

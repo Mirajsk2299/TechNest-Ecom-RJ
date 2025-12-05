@@ -3,6 +3,9 @@ import Helpimg from "../assets/helpline-img.avif";
 import "../Styles/AllComponents.css";
 
 const Helpcenter = () => {
+  const showAlert = () => {
+    alert("Help Center feature coming soon…");
+  };
   return (
     <div
       style={{
@@ -11,11 +14,9 @@ const Helpcenter = () => {
         display: "flex",
         flexDirection: "row",
         backgroundImage: `url(${Helpimg})`,
-        // backgroundSize: "cover",
-        // backgroundPosition: "center",
-        // backgroundRepeat: "no-repeat",
+
         backgroundRepeat: "no-repeat",
-        backgroundSize: "contain", // 👉 image will NOT zoom
+        backgroundSize: "contain",
         backgroundPosition: "right",
       }}
     >
@@ -40,7 +41,6 @@ const Helpcenter = () => {
             alignItems: "start",
             justifyContent: "start",
             gap: "1.5rem",
-            // backgroundColor: "black",
           }}
         >
           <h1 style={{ fontSize: "2.2rem", color: "white" }}>
@@ -62,15 +62,12 @@ const Helpcenter = () => {
               border: "1px solid blue",
               color: "blue",
             }}
+            onClick={showAlert}
           >
             Go to Help Center
           </button>
         </div>
       </div>
-
-      {/* <div className="help-img" style={{ width: "60%" }}>
-        <img src={Helpimg} style={{ height: "100%" }} />
-      </div> */}
     </div>
   );
 };

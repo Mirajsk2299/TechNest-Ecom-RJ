@@ -1,6 +1,7 @@
 import React from "react";
 import Drone from "../assets/offer-drone.avif";
 import "../Styles/AllComponents.css";
+import { Link } from "react-router-dom";
 
 const Tspecial = () => {
   return (
@@ -85,21 +86,23 @@ const Tspecial = () => {
               <p>Limited quantities.</p>
               <p>See product detail pages for availability.</p>
             </div>
-            <button
-              className="Tspecial-btn"
-              style={{
-                width: "10rem",
-                height: "3rem",
-                borderRadius: "25px",
-                border: "none",
-                backgroundColor: "blue",
-                color: "white",
-                fontSize: "20px",
-                cursor: "pointer",
-              }}
-            >
-              Shop
-            </button>
+            <Link to="Dronescam">
+              <button
+                className="Tspecial-btn"
+                style={{
+                  width: "10rem",
+                  height: "3rem",
+                  borderRadius: "25px",
+                  border: "none",
+                  backgroundColor: "blue",
+                  color: "white",
+                  fontSize: "20px",
+                  cursor: "pointer",
+                }}
+              >
+                Shop
+              </button>
+            </Link>
           </div>
         </div>
       </div>

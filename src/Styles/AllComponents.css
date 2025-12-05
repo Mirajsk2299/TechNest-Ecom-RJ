@@ -69,7 +69,7 @@
   list-style: none;
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 25px;
   font-size: 17px;
 }
 
@@ -299,7 +299,6 @@
   position: absolute;
   top: 0;
   left: 100%;
-  /* margin-left: 7px; */
   background: white;
   padding: 0.4rem;
   border: 1px solid #ccc;
@@ -438,7 +437,6 @@
   padding: 3px 12px;
   font-size: 0.8rem;
   font-weight: bold;
-  /* border-radius: 25px; */
   margin-left: 6%;
   margin-top: 7%;
 }

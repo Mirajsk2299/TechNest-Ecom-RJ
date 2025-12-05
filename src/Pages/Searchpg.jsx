@@ -12,6 +12,8 @@ const Searchpg = () => {
           />
           <button className="searchpg-button">Close</button>
         </div>
+
+        <div className="searched-cards"></div>
       </div>
     </div>
   );

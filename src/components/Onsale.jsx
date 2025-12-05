@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Onsaledata from "../ProductsData/Onsaledata.js";
 import "../Styles/AllComponents.css";
+import { Link } from "react-router-dom";
 
 const Onsale = () => {
   const [index, setIndex] = useState(0);
 
   const next = () => {
     if (index >= Onsaledata.length - 4) {
-      setIndex(0); // ⬅ loop to start
+      setIndex(0);
     } else {
       setIndex(index + 1);
     }
@@ -15,7 +16,7 @@ const Onsale = () => {
 
   const prev = () => {
     if (index === 0) {
-      setIndex(Onsaledata.length - 4); // ⬅ loop to last 3
+      setIndex(Onsaledata.length - 4);
     } else {
       setIndex(index - 1);
     }
@@ -24,7 +25,7 @@ const Onsale = () => {
   return (
     <div
       style={{
-        height: "90vh",
+        height: "80vh",
         width: "100%",
         display: "flex",
         alignItems: "center",
@@ -58,8 +59,8 @@ const Onsale = () => {
             {Onsaledata.slice(index, index + 4).map((item) => (
               <div className="card" key={item.id}>
                 <img src={item.image} alt={item.name} />
-                {/* <span className="sale-badge">Sale</span> */}
                 {item.sale && <span className="sale-badge">Sale</span>}
+                <hr style={{ width: "100%" }} />
 
                 <div className="card-txt">
                   <div className="card-name">
@@ -80,22 +81,24 @@ const Onsale = () => {
         </div>
 
         <div className="bstslr-btn">
-          <button
-            className="bestsell-btn"
-            style={{
-              width: "14rem",
-              height: "3rem",
-              borderRadius: "25px",
-              border: "none",
-              backgroundColor: "rgba(71, 71, 253, 1)",
-              color: "white",
-              fontSize: "1.1rem",
-              cursor: "pointer",
-              fontWeight: "350",
-            }}
-          >
-            View All
-          </button>
+          <Link to="/onsalePage">
+            <button
+              className="bestsell-btn"
+              style={{
+                width: "14rem",
+                height: "2.8rem",
+                borderRadius: "25px",
+                border: "none",
+                backgroundColor: "rgba(71, 71, 253, 1)",
+                color: "white",
+                fontSize: "1.1rem",
+                cursor: "pointer",
+                fontWeight: "350",
+              }}
+            >
+              View All
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -49,17 +49,12 @@ const Newsletter = () => {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "center",
-            // gap: "1rem",
           }}
         >
           <div
             className="input-box"
             style={{
               width: "40rem",
-              // display: "flex",
-              // flexDirection: "column",
-              // alignItems: "center",
-              // justifyContent: "center",
             }}
           >
             <label

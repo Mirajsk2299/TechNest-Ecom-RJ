@@ -13,7 +13,6 @@ const Rulesbar = () => {
         height: "auto",
         width: "100%",
         backgroundColor: "#D3D3D3 ",
-        // padding: "1%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

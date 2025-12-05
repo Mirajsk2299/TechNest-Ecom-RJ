@@ -30,10 +30,6 @@ const Computers = () => {
         {/* ------------ side bar */}
         <div className="side-bar">
           <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
         </div>
         {/* ------------------------------- */}
 
@@ -96,7 +92,6 @@ const Computers = () => {
                 <div className="quickview-buttons">
                   <button className="quickview-allbuttons">Add to cart</button>
                   <button className="quickview-allbuttons">Buy Now</button>
-                  {/* <button className="quickview-wishlist">❤️</button> */}
                 </div>
               </div>
             </div>

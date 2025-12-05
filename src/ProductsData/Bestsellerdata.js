@@ -10,11 +10,10 @@ import oceanpro from "../assets/bestseller/ocean-pro11.avif";
 import shelled from "../assets/bestseller/shel-50-led.avif";
 import buds from "../assets/bestseller/white-buds-wireless.avif";
 import zpixel from "../assets/bestseller/zpixel-max.avif";
-
 const Bestsellerdata = [
   {
     id: 1,
-    name: " 65 Class Nano LED 4K UHD Smart TV  ",
+    name: "Nano LED 4K TV",
     oldPrice: 11000,
     currentPrice: 9999,
     image: nanoled,
@@ -22,7 +21,7 @@ const Bestsellerdata = [
   },
   {
     id: 2,
-    name: "Fitboot Inspire Fitness Tracker With Heart Rate Tracking",
+    name: "Fitboot Tracker",
     oldPrice: 2799,
     currentPrice: 2499,
     image: fitboot,
@@ -30,7 +29,7 @@ const Bestsellerdata = [
   },
   {
     id: 3,
-    name: "SDK Portable Bluetooth Speaker",
+    name: "Portable BT Speaker",
     oldPrice: 1299,
     currentPrice: 999,
     image: portablebt,
@@ -38,7 +37,7 @@ const Bestsellerdata = [
   },
   {
     id: 4,
-    name: "HKI Tech Quadcopter Drone With 360 Camera & Controller",
+    name: "Quadcopter Drone",
     oldPrice: 999,
     currentPrice: 799,
     image: quadcopter,
@@ -46,7 +45,7 @@ const Bestsellerdata = [
   },
   {
     id: 5,
-    name: "In-ear Noise Cancelling & Isolating Wireless Earbuds",
+    name: "In-ear Earbuds",
     oldPrice: 799,
     currentPrice: 599,
     image: inears,
@@ -54,7 +53,7 @@ const Bestsellerdata = [
   },
   {
     id: 6,
-    name: "JP Gaming Laptop Laptop 256GB",
+    name: "JP Gaming Laptop",
     oldPrice: 699,
     currentPrice: 499,
     image: jpgaming,
@@ -62,7 +61,7 @@ const Bestsellerdata = [
   },
   {
     id: 7,
-    name: "JP - Space Tablet ",
+    name: "JP Space Tablet",
     oldPrice: 3999,
     currentPrice: 3499,
     image: sptablet,
@@ -70,7 +69,7 @@ const Bestsellerdata = [
   },
   {
     id: 8,
-    name: "Megapixel Waterproof Mini Digital Camera",
+    name: "Waterproof Camera",
     oldPrice: 2199,
     currentPrice: 1899,
     image: megapixel,
@@ -78,7 +77,7 @@ const Bestsellerdata = [
   },
   {
     id: 9,
-    name: "Ocean Pro 11 ",
+    name: "Ocean Pro 11",
     oldPrice: 1799,
     currentPrice: 1499,
     image: oceanpro,
@@ -86,7 +85,7 @@ const Bestsellerdata = [
   },
   {
     id: 10,
-    name: "Shel LED 4K UHD Smart TV",
+    name: "Shel LED TV",
     oldPrice: 499,
     currentPrice: 349,
     image: shelled,
@@ -94,7 +93,7 @@ const Bestsellerdata = [
   },
   {
     id: 11,
-    name: "White Buds Wireless Earbud Headphones",
+    name: "White Buds Wireless",
     oldPrice: 1099,
     currentPrice: 899,
     image: buds,
@@ -102,7 +101,7 @@ const Bestsellerdata = [
   },
   {
     id: 12,
-    name: "Smartphone Z Pixel Max 128GB Unlocked",
+    name: "Z Pixel Max",
     oldPrice: 3499,
     currentPrice: 2999,
     image: zpixel,

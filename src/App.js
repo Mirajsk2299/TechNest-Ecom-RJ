@@ -26,10 +26,14 @@ import Wearables from "../src/Pages/Wearables.jsx";
 import Tvcinemas from "../src/Pages/Tvcinemas.jsx";
 import Allitems from "../src/Pages/Allitems.jsx";
 import Searchpg from "../src/Pages/Searchpg.jsx";
-
 import Login from "../src/Pages/Login.jsx";
-import Wishlist from "../src/Pages/Wishlist.jsx";
-import Cart from "../src/Pages/Cart.jsx";
+import Cartpage from "../src/Pages/Cartpage.jsx";
+import Register from "../src/Pages/Register.jsx";
+import Forgotpass from "../src/Pages/Forgotpass.jsx";
+import Wishlistpage from "../src/Pages/Wishlistpage.jsx";
+import Contactus from "../src/Pages/Contactus.jsx";
+import Bestsellerpage from "../src/Pages/Bestsellerpage.jsx";
+import OnsalePage from "../src/Pages/OnsalePage.jsx";
 
 function App() {
   return (
@@ -67,10 +71,14 @@ function App() {
           <Route path="/allitems" element={<Allitems />} />
           <Route path="/onsale" element={<Onsale />} />
           <Route path="/searchpg" element={<Searchpg />} />
-
+          <Route path="/bestsellerpage" element={<Bestsellerpage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlistpage" element={<Wishlistpage />} />
+          <Route path="/cartpage" element={<Cartpage />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgotpass" element={<Forgotpass />} />
+          <Route path="/contactus" element={<Contactus />} />
+          <Route path="/onsalePage" element={<OnsalePage />} />
         </Routes>
 
         <Helpcenter />

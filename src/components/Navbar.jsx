@@ -88,28 +88,34 @@ const Navbar = () => {
               className="wishlist-icon"
               style={{ alignItems: "center", display: "flex" }}
             >
-              <FontAwesomeIcon
-                icon={faHeart}
-                style={{
-                  marginRight: "0.2rem",
-                  fontSize: "25px",
-                  cursor: "pointer",
-                }}
-              />
+              <Link to="wishlistpage" className="nav-link">
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  style={{
+                    marginRight: "0.2rem",
+                    fontSize: "25px",
+                    cursor: "pointer",
+                  }}
+                />
+              </Link>
+
               <span style={{ fontSize: "20px" }}>0</span>
             </div>
             <div
               className="cart-icon"
               style={{ alignItems: "center", display: "flex" }}
             >
-              <FontAwesomeIcon
-                icon={faCartArrowDown}
-                style={{
-                  marginRight: "0.2rem",
-                  fontSize: "25px",
-                  cursor: "pointer",
-                }}
-              />
+              <Link to="cartpage" className="nav-link">
+                <FontAwesomeIcon
+                  icon={faCartArrowDown}
+                  style={{
+                    marginRight: "0.2rem",
+                    fontSize: "25px",
+                    cursor: "pointer",
+                  }}
+                />
+              </Link>
+
               <span style={{ fontSize: "20px" }}>0</span>
             </div>
           </div>
@@ -125,7 +131,6 @@ const Navbar = () => {
           alignItems: "center",
           padding: "0.8rem",
           backgroundColor: "#e4e1e1ff",
-          // justifyContent: "space-between",
           gap: "12%",
         }}
       >
@@ -183,23 +188,9 @@ const Navbar = () => {
                 Sale
               </Link>
             </li>
-          </ul>
-        </div>
-        <div className="lowernav-left" style={{ marginRight: "2rem" }}>
-          <ul>
             <li>
-              <Link to="#" className="nav-link">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="nav-link">
+              <Link to="contactus" className="nav-link">
                 Contact Us
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="nav-link">
-                Help Center
               </Link>
             </li>
           </ul>

@@ -1,6 +1,7 @@
 import React from "react";
 import landinglapi from "../assets/landing-laptop.avif";
 import "../Styles/AllComponents.css";
+import { Link } from "react-router-dom";
 
 const Landingpg = () => {
   return (
@@ -52,7 +53,9 @@ const Landingpg = () => {
           </p>
         </div>
         <div className="landingbtn-box">
-          <button className="landing-btn">Shop Now</button>
+          <Link to="computers">
+            <button className="landing-btn">Shop Now</button>
+          </Link>
         </div>
       </div>
     </div>

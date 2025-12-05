@@ -16,7 +16,6 @@ const Category = () => {
   return (
     <div
       style={{
-        // minHeight: "110vh",
         height: "auto",
         width: "100%",
         backgroundColor: "#D3D3D3 ",
@@ -31,7 +30,6 @@ const Category = () => {
         style={{
           backgroundColor: "#ffffffff ",
           width: "95vw",
-          // minHeight: "90%",
           height: "auto",
           display: "flex",
           flexDirection: "column",
@@ -57,18 +55,11 @@ const Category = () => {
         <div
           className="category-icons"
           style={{
-            // display: "flex",
-            // flexWrap: "wrap",
-            // gap: "35px",
-            // alignItems: "center",
-            // justifyContent: "center",
-            // padding: "2%",
             display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)", // 4 per row
+            gridTemplateColumns: "repeat(5, 1fr)",
             gap: "30px",
             padding: "2%",
-            placeItems: "center", // centers items both directions
-            // gridTemplateColumns: "repeat(auto-fit, minmax(70px, 3fr))",
+            placeItems: "center",
           }}
         >
           <div className="category-singleimg">
