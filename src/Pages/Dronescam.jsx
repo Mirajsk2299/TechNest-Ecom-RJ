@@ -1,12 +1,12 @@
-import React, {  useContext } from "react";
+import React, { useContext } from "react";
 import "../Styles/Pages.css";
 import { ButtonsContext } from "../context/Buttonscontext.js";
 
 import Allproducts from "../ProductsData/Allproducts.js";
 
 const Dronescam = () => {
-  const computers = Allproducts.filter(
-    (item) => item.category.toLowerCase() === "computers"
+  const drones = Allproducts.filter(
+    (item) => item.category.toLowerCase() === "drones"
   );
 
   const { quickViewProduct, openQuickView, closeQuickView } =
@@ -38,7 +38,7 @@ const Dronescam = () => {
         {/* ------------------------------- */}
 
         <div className="for-cards">
-          {computers.map((product) => (
+          {drones.map((product) => (
             <div
               className="single-card"
               key={product.id}

@@ -60,7 +60,7 @@ const Computers = () => {
                 )}
 
                 <p className="cards-prices">
-                  <strong>₹{product.Price}</strong>
+                  <strong>₹ {product.Price}</strong>
                 </p>
               </div>
             </div>

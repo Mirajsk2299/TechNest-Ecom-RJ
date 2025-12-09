@@ -5,8 +5,8 @@ import { ButtonsContext } from "../context/Buttonscontext.js";
 import Allproducts from "../ProductsData/Allproducts.js";
 
 const Tablets = () => {
-  const computers = Allproducts.filter(
-    (item) => item.category.toLowerCase() === "computers"
+  const tablets = Allproducts.filter(
+    (item) => item.category.toLowerCase() === "tablets"
   );
 
   const { quickViewProduct, openQuickView, closeQuickView } =
@@ -30,15 +30,11 @@ const Tablets = () => {
         {/* ------------ side bar */}
         <div className="side-bar">
           <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
         </div>
         {/* ------------------------------- */}
 
         <div className="for-cards">
-          {computers.map((product) => (
+          {tablets.map((product) => (
             <div
               className="single-card"
               key={product.id}
@@ -64,7 +60,7 @@ const Tablets = () => {
                 )}
 
                 <p className="cards-prices">
-                  <strong>₹{product.Price}</strong>
+                  <strong>₹ {product.Price}</strong>
                 </p>
               </div>
             </div>

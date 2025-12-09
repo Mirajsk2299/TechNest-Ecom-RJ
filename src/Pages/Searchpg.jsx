@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ButtonsContext } from "../context/Buttonscontext.js";
 
 const Searchpg = () => {
+  const { goTohome } = useContext(ButtonsContext);
   return (
     <div className="Searchpg-mainbox">
       <div className="searchpg-second">
@@ -10,7 +12,11 @@ const Searchpg = () => {
             type="text"
             placeholder="🔍 Search Product..."
           />
-          <button className="searchpg-button">Close</button>
+          {/* <Link to="/">    */}
+          <button onClick={goTohome} className="searchpg-button">
+            Close
+          </button>
+          {/* </Link> */}
         </div>
 
         <div className="searched-cards"></div>

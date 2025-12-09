@@ -1,25 +1,29 @@
 import React, { useState } from "react";
-import Bestsellerdata from "../ProductsData/Bestsellerdata.js";
+import Onsaledata from "../ProductsData/Allproducts.js";
 import "../Styles/AllComponents.css";
 import { Link } from "react-router-dom";
 
-const Bestseller = () => {
+const Onsale = () => {
+  const Bestsellerroducts = Onsaledata.filter((item) => item.Bestseller);
+
   const [index, setIndex] = useState(0);
 
   const next = () => {
-    if (index >= Bestsellerdata.length - 4) {
-      setIndex(0);
-    } else {
-      setIndex(index + 1);
-    }
+    setIndex((prev) => (prev + 1) % Bestsellerroducts.length);
   };
 
   const prev = () => {
-    if (index === 0) {
-      setIndex(Bestsellerdata.length - 4);
-    } else {
-      setIndex(index - 1);
+    setIndex(
+      (prev) => (prev - 1 + Bestsellerroducts.length) % Bestsellerroducts.length
+    );
+  };
+
+  const getVisibleItems = () => {
+    const items = [];
+    for (let i = 0; i < 4; i++) {
+      items.push(Bestsellerroducts[(index + i) % Bestsellerroducts.length]);
     }
+    return items;
   };
 
   return (
@@ -30,7 +34,7 @@ const Bestseller = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#D3D3D3 ",
+        backgroundColor: "#D3D3D3",
       }}
     >
       <div
@@ -38,7 +42,7 @@ const Bestseller = () => {
         style={{
           width: "95vw",
           height: "95%",
-          backgroundColor: "#ffffffff ",
+          backgroundColor: "#ffffff",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -47,7 +51,7 @@ const Bestseller = () => {
         }}
       >
         <div className="htag-bestslr">
-          <h1 style={{ fontSize: "2.5rem" }}>Best Sellers</h1>
+          <h1 style={{ fontSize: "2.5rem" }}>Best Seller</h1>
         </div>
 
         <div className="carousel-container">
@@ -56,9 +60,9 @@ const Bestseller = () => {
               ◀
             </button>
 
-            {Bestsellerdata.slice(index, index + 4).map((item) => (
+            {getVisibleItems().map((item) => (
               <div className="card" key={item.id}>
-                <img src={item.image} alt="Loading" />
+                <img src={item.image} alt={item.name} />
                 {item.sale && <span className="sale-badge">Sale</span>}
                 <hr style={{ width: "100%" }} />
 
@@ -68,7 +72,7 @@ const Bestseller = () => {
                   </div>
                   <div className="prices">
                     <span className="old">₹{item.oldPrice}</span>
-                    <span className="new">₹{item.currentPrice}</span>
+                    <span className="new">₹{item.Price}</span>
                   </div>
                 </div>
               </div>
@@ -81,7 +85,7 @@ const Bestseller = () => {
         </div>
 
         <div className="bstslr-btn">
-          <Link to="Bestsellerpage">
+          <Link to="/bestsellerpage">
             <button
               className="bestsell-btn"
               style={{
@@ -105,4 +109,4 @@ const Bestseller = () => {
   );
 };
 
-export default Bestseller;
+export default Onsale;

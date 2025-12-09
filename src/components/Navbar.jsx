@@ -185,7 +185,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="onsale" className="nav-link">
-                Sale
+                On Sale
               </Link>
             </li>
             <li>

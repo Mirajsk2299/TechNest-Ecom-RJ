@@ -1,25 +1,27 @@
 import React, { useState } from "react";
-import Onsaledata from "../ProductsData/Onsaledata.js";
+import Onsaledata from "../ProductsData/Allproducts.js";
 import "../Styles/AllComponents.css";
 import { Link } from "react-router-dom";
 
 const Onsale = () => {
+  const saleProducts = Onsaledata.filter((item) => item.sale);
+
   const [index, setIndex] = useState(0);
 
   const next = () => {
-    if (index >= Onsaledata.length - 4) {
-      setIndex(0);
-    } else {
-      setIndex(index + 1);
-    }
+    setIndex((prev) => (prev + 1) % saleProducts.length);
   };
 
   const prev = () => {
-    if (index === 0) {
-      setIndex(Onsaledata.length - 4);
-    } else {
-      setIndex(index - 1);
+    setIndex((prev) => (prev - 1 + saleProducts.length) % saleProducts.length);
+  };
+
+  const getVisibleItems = () => {
+    const items = [];
+    for (let i = 0; i < 4; i++) {
+      items.push(saleProducts[(index + i) % saleProducts.length]);
     }
+    return items;
   };
 
   return (
@@ -30,7 +32,7 @@ const Onsale = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#D3D3D3 ",
+        backgroundColor: "#D3D3D3",
       }}
     >
       <div
@@ -38,7 +40,7 @@ const Onsale = () => {
         style={{
           width: "95vw",
           height: "95%",
-          backgroundColor: "#ffffffff ",
+          backgroundColor: "#ffffff",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -56,7 +58,7 @@ const Onsale = () => {
               ◀
             </button>
 
-            {Onsaledata.slice(index, index + 4).map((item) => (
+            {getVisibleItems().map((item) => (
               <div className="card" key={item.id}>
                 <img src={item.image} alt={item.name} />
                 {item.sale && <span className="sale-badge">Sale</span>}
@@ -68,7 +70,7 @@ const Onsale = () => {
                   </div>
                   <div className="prices">
                     <span className="old">₹{item.oldPrice}</span>
-                    <span className="new">₹{item.currentPrice}</span>
+                    <span className="new">₹{item.Price}</span>
                   </div>
                 </div>
               </div>

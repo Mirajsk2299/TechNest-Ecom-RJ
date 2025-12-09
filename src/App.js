@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Navbar from "../src/components/Navbar.jsx";
 import Landingpg from "../src/components/Landingpg.jsx";
@@ -38,54 +38,54 @@ import OnsalePage from "../src/Pages/OnsalePage.jsx";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navbar />
+      {/* <BrowserRouter> */}
+      <Navbar />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Landingpg />
-                <Landinglower />
-                <Rulesbar />
-                <Bestseller />
-                <Category />
-                <Bestprice />
-                <Onsale />
-                <Tspecial />
-                <Brands />
-                <Newsletter />
-              </>
-            }
-          />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Landingpg />
+              <Landinglower />
+              <Rulesbar />
+              <Bestseller />
+              <Category />
+              <Bestprice />
+              <Onsale />
+              <Tspecial />
+              <Brands />
+              <Newsletter />
+            </>
+          }
+        />
 
-          <Route path="/computers" element={<Computers />} />
-          <Route path="/dronescam" element={<Dronescam />} />
-          <Route path="/headphone" element={<Headphone />} />
-          <Route path="/mobiles" element={<Mobiles />} />
-          <Route path="/speaker" element={<Speaker />} />
-          <Route path="/tablets" element={<Tablets />} />
-          <Route path="/wearables" element={<Wearables />} />
-          <Route path="/tvcinemas" element={<Tvcinemas />} />
-          <Route path="/allitems" element={<Allitems />} />
-          <Route path="/onsale" element={<Onsale />} />
-          <Route path="/searchpg" element={<Searchpg />} />
-          <Route path="/bestsellerpage" element={<Bestsellerpage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/wishlistpage" element={<Wishlistpage />} />
-          <Route path="/cartpage" element={<Cartpage />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgotpass" element={<Forgotpass />} />
-          <Route path="/contactus" element={<Contactus />} />
-          <Route path="/onsalePage" element={<OnsalePage />} />
-        </Routes>
+        <Route path="/computers" element={<Computers />} />
+        <Route path="/dronescam" element={<Dronescam />} />
+        <Route path="/headphone" element={<Headphone />} />
+        <Route path="/mobiles" element={<Mobiles />} />
+        <Route path="/speaker" element={<Speaker />} />
+        <Route path="/tablets" element={<Tablets />} />
+        <Route path="/wearables" element={<Wearables />} />
+        <Route path="/tvcinemas" element={<Tvcinemas />} />
+        <Route path="/allitems" element={<Allitems />} />
+        <Route path="/onsale" element={<Onsale />} />
+        <Route path="/searchpg" element={<Searchpg />} />
+        <Route path="/bestsellerpage" element={<Bestsellerpage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/wishlistpage" element={<Wishlistpage />} />
+        <Route path="/cartpage" element={<Cartpage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgotpass" element={<Forgotpass />} />
+        <Route path="/contactus" element={<Contactus />} />
+        <Route path="/onsalePage" element={<OnsalePage />} />
+      </Routes>
 
-        <Helpcenter />
-        <Footer />
-        <Footerbanks />
-        <Lastline />
-      </BrowserRouter>
+      <Helpcenter />
+      <Footer />
+      <Footerbanks />
+      <Lastline />
+      {/* </BrowserRouter> */}
     </div>
   );
 }
