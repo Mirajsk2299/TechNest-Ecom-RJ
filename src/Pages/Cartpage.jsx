@@ -153,14 +153,14 @@ const Cartpage = () => {
 
           <div className="upperheading-second">
             <p>Delivery Fee</p>
-            <p>₹ 50</p>
+            <p>₹ 0</p>
           </div>
 
           <hr />
 
           <div className="upperheading-second">
             <h3>Total Amount</h3>
-            <p>₹ {totalAmount + 50}</p>
+            <p>₹ {totalAmount + 0}</p>
           </div>
 
           <hr />
