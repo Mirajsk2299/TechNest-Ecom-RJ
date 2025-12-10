@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import "../Styles/Pages.css";
 import { ButtonsContext } from "../context/Buttonscontext.js";
-
 import Allproducts from "../ProductsData/Allproducts.js";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/addtocart/addtocartSlice.js";
 
 const Tablets = () => {
   const tablets = Allproducts.filter(
@@ -11,6 +12,8 @@ const Tablets = () => {
 
   const { quickViewProduct, openQuickView, closeQuickView } =
     useContext(ButtonsContext);
+
+  const dispatch = useDispatch();
 
   return (
     <div className="computer-pg">
@@ -21,7 +24,7 @@ const Tablets = () => {
         </div>
 
         <div className="sort-count">
-          <p>8 Products</p>
+          <p>{tablets.length} Products</p>
           <p>Sort by: Recommended</p>
         </div>
       </div>
@@ -67,10 +70,14 @@ const Tablets = () => {
           ))}
         </div>
       </div>
+
       {/* quickview card  start */}
       {quickViewProduct && (
         <div className="quickview-overlay" onClick={closeQuickView}>
-          <div className="quickview-second">
+          <div
+            className="quickview-second"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="quickview-box">
               <div className="quickview-imgbox">
                 <img
@@ -90,7 +97,16 @@ const Tablets = () => {
                 </p>
                 <h3 className="quickview-Price">₹{quickViewProduct.Price}</h3>
                 <div className="quickview-buttons">
-                  <button className="quickview-allbuttons">Add to cart</button>
+                  <button
+                    className="quickview-allbuttons"
+                    onClick={() => {
+                      dispatch(addToCart(quickViewProduct));
+                      // closeQuickView();
+                    }}
+                  >
+                    Add to cart
+                  </button>
+
                   <button className="quickview-allbuttons">Buy Now</button>
                 </div>
               </div>

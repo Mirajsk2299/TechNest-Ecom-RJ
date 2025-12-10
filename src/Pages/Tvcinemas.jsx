@@ -1,8 +1,14 @@
 import React, { useContext } from "react";
 import "../Styles/Pages.css";
 import { ButtonsContext } from "../context/Buttonscontext.js";
-
+import { WishlistContext } from "../context/Wishlistcontext.js";
+import { useSelector, useDispatch } from "react-redux";
 import Allproducts from "../ProductsData/Allproducts.js";
+
+import {
+  addToCart,
+  removeFromCart,
+} from "../redux/addtocart/addtocartSlice.js";
 
 const Tvcinemas = () => {
   const homecinemas = Allproducts.filter(
@@ -11,6 +17,17 @@ const Tvcinemas = () => {
 
   const { quickViewProduct, openQuickView, closeQuickView } =
     useContext(ButtonsContext);
+
+  const { addToWishlist, removeFromWishlist, isInWishlist } =
+    useContext(WishlistContext);
+
+  const dispatch = useDispatch();
+
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const isInCart = quickViewProduct
+    ? cartItems.some((item) => item.id === quickViewProduct.id)
+    : false;
 
   return (
     <div className="computer-pg">
@@ -21,22 +38,18 @@ const Tvcinemas = () => {
         </div>
 
         <div className="sort-count">
-          <p>8 Products</p>
+          <p>{homecinemas.length} Products</p>
           <p>Sort by: Recommended</p>
         </div>
       </div>
 
       <div className="computer-second">
-        {/* ------------ side bar */}
+        {/* Sidebar */}
         <div className="side-bar">
           <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
         </div>
-        {/* ------------------------------- */}
 
+        {/* Product Cards */}
         <div className="for-cards">
           {homecinemas.map((product) => (
             <div
@@ -45,8 +58,23 @@ const Tvcinemas = () => {
               onClick={() => openQuickView(product)}
             >
               <div className="wishlist-logo">
-                <button className="wishlogo-btn">
-                  ❤️ <br /> <p className="wishlist-word"> Wishlist</p>
+                <button
+                  className="wishlogo-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+
+                    isInWishlist(product.id)
+                      ? removeFromWishlist(product.id)
+                      : addToWishlist(product);
+                  }}
+                >
+                  {isInWishlist(product.id) ? "💖" : "🤍"}
+                  <br />
+
+                  {/* <p className="wishlist-word">Wishlist</p> */}
+                  <p className="wishlist-word">
+                    {isInWishlist(product.id) ? " Remove " : "Wishlist"}
+                  </p>
                 </button>
               </div>
 
@@ -64,17 +92,21 @@ const Tvcinemas = () => {
                 )}
 
                 <p className="cards-prices">
-                  <strong>₹{product.Price}</strong>
+                  <strong>₹ {product.Price}</strong>
                 </p>
               </div>
             </div>
           ))}
         </div>
       </div>
-      {/* quickview card  start */}
+
+      {/* QuickView */}
       {quickViewProduct && (
         <div className="quickview-overlay" onClick={closeQuickView}>
-          <div className="quickview-second">
+          <div
+            className="quickview-second"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="quickview-box">
               <div className="quickview-imgbox">
                 <img
@@ -93,8 +125,19 @@ const Tvcinemas = () => {
                   {quickViewProduct.description}
                 </p>
                 <h3 className="quickview-Price">₹{quickViewProduct.Price}</h3>
+
                 <div className="quickview-buttons">
-                  <button className="quickview-allbuttons">Add to cart</button>
+                  <button
+                    className="quickview-allbuttons"
+                    onClick={() =>
+                      isInCart
+                        ? dispatch(removeFromCart(quickViewProduct.id))
+                        : dispatch(addToCart(quickViewProduct))
+                    }
+                  >
+                    {isInCart ? "Remove / Cart" : "Add to Cart"}
+                  </button>
+
                   <button className="quickview-allbuttons">Buy Now</button>
                 </div>
               </div>
@@ -107,7 +150,6 @@ const Tvcinemas = () => {
           </div>
         </div>
       )}
-      {/* quickview card  end */}
     </div>
   );
 };

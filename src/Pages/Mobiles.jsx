@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import "../Styles/Pages.css";
 import { ButtonsContext } from "../context/Buttonscontext.js";
-
 import Allproducts from "../ProductsData/Allproducts.js";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/addtocart/addtocartSlice.js";
 
 const Mobiles = () => {
   const mobile = Allproducts.filter(
@@ -11,6 +12,8 @@ const Mobiles = () => {
 
   const { quickViewProduct, openQuickView, closeQuickView } =
     useContext(ButtonsContext);
+
+  const dispatch = useDispatch();
 
   return (
     <div className="computer-pg">
@@ -21,7 +24,7 @@ const Mobiles = () => {
         </div>
 
         <div className="sort-count">
-          <p>8 Products</p>
+          <p>{mobile.length} Products</p>
           <p>Sort by: Recommended</p>
         </div>
       </div>
@@ -29,10 +32,6 @@ const Mobiles = () => {
       <div className="computer-second">
         {/* ------------ side bar */}
         <div className="side-bar">
-          <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
-          <p>Filters</p>
           <p>Filters</p>
         </div>
         {/* ------------------------------- */}
@@ -64,17 +63,21 @@ const Mobiles = () => {
                 )}
 
                 <p className="cards-prices">
-                  <strong>₹{product.Price}</strong>
+                  <strong>₹ {product.Price}</strong>
                 </p>
               </div>
             </div>
           ))}
         </div>
       </div>
-      {/* quickview card  start */}
+
+      {/* quickview card start */}
       {quickViewProduct && (
         <div className="quickview-overlay" onClick={closeQuickView}>
-          <div className="quickview-second">
+          <div
+            className="quickview-second"
+            onClick={(e) => e.stopPropagation()} // Prevent overlay click
+          >
             <div className="quickview-box">
               <div className="quickview-imgbox">
                 <img
@@ -94,7 +97,12 @@ const Mobiles = () => {
                 </p>
                 <h3 className="quickview-Price">₹{quickViewProduct.Price}</h3>
                 <div className="quickview-buttons">
-                  <button className="quickview-allbuttons">Add to cart</button>
+                  <button
+                    className="quickview-allbuttons"
+                    onClick={() => dispatch(addToCart(quickViewProduct))} // Add to cart without closing quick view
+                  >
+                    Add to cart
+                  </button>
                   <button className="quickview-allbuttons">Buy Now</button>
                 </div>
               </div>
@@ -107,7 +115,7 @@ const Mobiles = () => {
           </div>
         </div>
       )}
-      {/* quickview card  end */}
+      {/* quickview card end */}
     </div>
   );
 };

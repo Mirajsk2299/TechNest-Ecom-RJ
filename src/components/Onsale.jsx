@@ -69,7 +69,7 @@ const Onsale = () => {
                     <p>{item.name}</p>
                   </div>
                   <div className="prices">
-                    <span className="old">₹{item.oldPrice}</span>
+                    <span className="old">₹{item.oldprice}</span>
                     <span className="new">₹{item.Price}</span>
                   </div>
                 </div>

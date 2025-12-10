@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import "../Styles/Pages.css";
 import { ButtonsContext } from "../context/Buttonscontext.js";
-
 import Allproducts from "../ProductsData/Allproducts.js";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/addtocart/addtocartSlice.js";
 
 const Headphone = () => {
   const headphone = Allproducts.filter(
@@ -11,6 +12,8 @@ const Headphone = () => {
 
   const { quickViewProduct, openQuickView, closeQuickView } =
     useContext(ButtonsContext);
+
+  const dispatch = useDispatch();
 
   return (
     <div className="computer-pg">
@@ -21,7 +24,7 @@ const Headphone = () => {
         </div>
 
         <div className="sort-count">
-          <p>8 Products</p>
+          <p>{headphone.length} Products</p>
           <p>Sort by: Recommended</p>
         </div>
       </div>
@@ -64,17 +67,21 @@ const Headphone = () => {
                 )}
 
                 <p className="cards-prices">
-                  <strong>₹{product.Price}</strong>
+                  <strong>₹ {product.Price}</strong>
                 </p>
               </div>
             </div>
           ))}
         </div>
       </div>
-      {/* quickview card  start */}
+
+      {/* quickview card start */}
       {quickViewProduct && (
         <div className="quickview-overlay" onClick={closeQuickView}>
-          <div className="quickview-second">
+          <div
+            className="quickview-second"
+            onClick={(e) => e.stopPropagation()} // prevent overlay click
+          >
             <div className="quickview-box">
               <div className="quickview-imgbox">
                 <img
@@ -94,7 +101,12 @@ const Headphone = () => {
                 </p>
                 <h3 className="quickview-Price">₹{quickViewProduct.Price}</h3>
                 <div className="quickview-buttons">
-                  <button className="quickview-allbuttons">Add to cart</button>
+                  <button
+                    className="quickview-allbuttons"
+                    onClick={() => dispatch(addToCart(quickViewProduct))} // keep quick view open
+                  >
+                    Add to cart
+                  </button>
                   <button className="quickview-allbuttons">Buy Now</button>
                 </div>
               </div>
@@ -107,7 +119,7 @@ const Headphone = () => {
           </div>
         </div>
       )}
-      {/* quickview card  end */}
+      {/* quickview card end */}
     </div>
   );
 };

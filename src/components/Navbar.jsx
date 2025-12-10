@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/AllComponents.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,8 +6,14 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { WishlistContext } from "../context/Wishlistcontext.js";
 
 const Navbar = () => {
+  const cartItems = useSelector((state) => state.cart.items);
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const { wishlist } = useContext(WishlistContext);
+
   return (
     <div>
       {/* Upper Navbar */}
@@ -34,7 +40,7 @@ const Navbar = () => {
             display: "flex",
             flexDirection: "row",
             marginRight: "2rem",
-            gap: "1.5rem",
+            gap: "2rem",
           }}
         >
           <div className="nav-srch">
@@ -99,7 +105,9 @@ const Navbar = () => {
                 />
               </Link>
 
-              <span style={{ fontSize: "20px" }}>0</span>
+              <span style={{ fontSize: "20px", width: "31px" }}>
+                {wishlist.length > 0 ? `${wishlist.length} ` : "0"}
+              </span>
             </div>
             <div
               className="cart-icon"
@@ -115,8 +123,10 @@ const Navbar = () => {
                   }}
                 />
               </Link>
-
-              <span style={{ fontSize: "20px" }}>0</span>
+              <span style={{ fontSize: "20px", width: "31px" }}>
+                {totalItems}
+              </span>
+              {/* <span style={{ fontSize: "20px" }}>0</span> */}
             </div>
           </div>
         </div>

@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import masimg from "../assets/urgentimg/logosample.jpg";
-import sampleimg from "../assets/mobile/zpixel-max.avif";
+import { WishlistContext } from "../context/Wishlistcontext.js";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+} from "../redux/addtocart/addtocartSlice.js";
 
 const Wishlistpage = () => {
+  const { wishlist, removeFromWishlist } = useContext(WishlistContext);
+
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+
+  // Check if a product is in cart
+  const isInCart = (id) => {
+    return cartItems.some((item) => item.id === id);
+  };
+
   return (
     <div className="Wishlistpg-mainbox">
       <div className="Wishlistpg-second">
-        {/* left start */}
+        {/* Left */}
         <div className="wishlistpg-left">
           <div className="logo-hello">
             <div className="logohello-logo">
@@ -19,206 +34,73 @@ const Wishlistpage = () => {
           </div>
 
           <div className="wishlistleft-lower">
-            <h4>Feature Coming Soon...</h4>
+            <h4>Feature Coming Soon</h4>
           </div>
         </div>
-        {/* left end */}
+
+        {/* Right */}
         <div className="wishlistpg-right">
           <div className="wishlist-heading">
             <h3> My Wishlist</h3>
-            <p>2 Items in Wishlist / No Items in wishlist</p>
+            <p>
+              {wishlist.length > 0
+                ? `${wishlist.length} Items in Wishlist`
+                : "No items in wishlist"}
+            </p>
           </div>
 
           <div className="wishlist-mainbox">
-            {/* -----------111111111111111111111--------------------- */}
+            {wishlist.length === 0 && (
+              <h3 style={{ padding: "20px", textAlign: "center" }}>
+                No items in wishlist 🙂
+              </h3>
+            )}
 
-            <div className="single-wishproduct">
-              <div className="wishlistimg-textmain">
-                <div className="mainwish-image">
-                  <img src={sampleimg} alt="Loading" />
-                </div>
+            {wishlist.map((item) => (
+              <React.Fragment key={item.id}>
+                <div className="single-wishproduct">
+                  <div className="wishlistimg-textmain">
+                    <div className="mainwish-image">
+                      <img src={item.image} alt={item.name} />
+                    </div>
 
-                <div className="wishlist-proddetails">
-                  <h3>UltraPro Laptop X1</h3>
-                  <p>RTX 3060 • 16GB RAM • 1TB SSD</p>
-                  <p>
-                    A gaming Laptop with ton's of Features fro Smooth Features
-                  </p>
-                  <h3>$ 299</h3>
-                </div>
-              </div>
-
-              <div className="wish-buttonsall">
-                <div className="wishbtns-upper">
-                  <div className="bin">
-                    <p className="wishlist-iconlast">🗑️</p>
-                    <p>Remove</p>
+                    <div className="wishlist-proddetails">
+                      <h3>{item.name}</h3>
+                      {item.productInfo && <p>{item.productInfo}</p>}
+                      <h3>₹ {item.Price}</h3>
+                    </div>
                   </div>
 
-                  <div className="adjust">
-                    <p className="wishlist-iconlast">✥</p>
-                    <p>Adjust</p>
-                  </div>
-                </div>
+                  <div className="wish-buttonsall">
+                    {/* REMOVE FROM WISHLIST */}
+                    <div className="wishbtns-upper">
+                      <div
+                        className="bin"
+                        onClick={() => removeFromWishlist(item.id)}
+                      >
+                        <p className="wishlist-iconlast">🗑️</p>
+                        <p>Remove</p>
+                      </div>
+                    </div>
 
-                <div className="wishbtns-lower">
-                  <button>Add to cart</button>
-                </div>
-              </div>
-            </div>
-            <hr style={{ color: "1px solid grey", width: "100%" }} />
-
-            {/* -----------111111111111111111111--------------------- */}
-            <div className="single-wishproduct">
-              <div className="wishlistimg-textmain">
-                <div className="mainwish-image">
-                  <img src={sampleimg} alt="Loading" />
-                </div>
-
-                <div className="wishlist-proddetails">
-                  <h3>UltraPro Laptop X1</h3>
-                  <p>RTX 3060 • 16GB RAM • 1TB SSD</p>
-                  <p>
-                    A gaming Laptop with ton's of Features fro Smooth Features{" "}
-                  </p>
-                  <h3>$ 299</h3>
-                </div>
-              </div>
-
-              <div className="wish-buttonsall">
-                <div className="wishbtns-upper">
-                  <div className="bin">
-                    <p className="wishlist-iconlast">🗑️</p>
-                    <p>Remove</p>
-                  </div>
-
-                  <div className="adjust">
-                    <p className="wishlist-iconlast">✥</p>
-                    <p>Adjust</p>
+                    {/* ADD / REMOVE FROM CART */}
+                    <div className="wishbtns-lower">
+                      <button
+                        onClick={() =>
+                          isInCart(item.id)
+                            ? dispatch(removeFromCart(item.id))
+                            : dispatch(addToCart(item))
+                        }
+                      >
+                        {isInCart(item.id) ? "Remove from Cart" : "Add to Cart"}
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                <div className="wishbtns-lower">
-                  <button>Add to cart</button>
-                </div>
-              </div>
-            </div>
-            <hr style={{ color: "1px solid grey", width: "100%" }} />
-            {/* -----------111111111111111111111--------------------- */}
-
-            {/* -----------111111111111111111111--------------------- */}
-            <div className="single-wishproduct">
-              <div className="wishlistimg-textmain">
-                <div className="mainwish-image">
-                  <img src={sampleimg} alt="Loading" />
-                </div>
-
-                <div className="wishlist-proddetails">
-                  <h3>UltraPro Laptop X1</h3>
-                  <p>RTX 3060 • 16GB RAM • 1TB SSD</p>
-                  <p>
-                    A gaming Laptop with ton's of Features fro Smooth Features{" "}
-                  </p>
-                  <h3>$ 299</h3>
-                </div>
-              </div>
-
-              <div className="wish-buttonsall">
-                <div className="wishbtns-upper">
-                  <div className="bin">
-                    <p className="wishlist-iconlast">🗑️</p>
-                    <p>Remove</p>
-                  </div>
-
-                  <div className="adjust">
-                    <p className="wishlist-iconlast">✥</p>
-                    <p>Adjust</p>
-                  </div>
-                </div>
-
-                <div className="wishbtns-lower">
-                  <button>Add to cart</button>
-                </div>
-              </div>
-            </div>
-            <hr style={{ color: "1px solid grey", width: "100%" }} />
-            {/* -----------111111111111111111111--------------------- */}
-
-            {/* -----------111111111111111111111--------------------- */}
-            <div className="single-wishproduct">
-              <div className="wishlistimg-textmain">
-                <div className="mainwish-image">
-                  <img src={sampleimg} alt="Loading" />
-                </div>
-
-                <div className="wishlist-proddetails">
-                  <h3>UltraPro Laptop X1</h3>
-                  <p>RTX 3060 • 16GB RAM • 1TB SSD</p>
-                  <p>
-                    A gaming Laptop with ton's of Features fro Smooth Features{" "}
-                  </p>
-                  <h3>$ 299</h3>
-                </div>
-              </div>
-
-              <div className="wish-buttonsall">
-                <div className="wishbtns-upper">
-                  <div className="bin">
-                    <p className="wishlist-iconlast">🗑️</p>
-                    <p>Remove</p>
-                  </div>
-
-                  <div className="adjust">
-                    <p className="wishlist-iconlast">✥</p>
-                    <p>Adjust</p>
-                  </div>
-                </div>
-
-                <div className="wishbtns-lower">
-                  <button>Add to cart</button>
-                </div>
-              </div>
-            </div>
-            <hr style={{ color: "1px solid grey", width: "100%" }} />
-            {/* -----------111111111111111111111--------------------- */}
-
-            {/* -----------111111111111111111111--------------------- */}
-            <div className="single-wishproduct">
-              <div className="wishlistimg-textmain">
-                <div className="mainwish-image">
-                  <img src={sampleimg} alt="Loading" />
-                </div>
-
-                <div className="wishlist-proddetails">
-                  <h3>UltraPro Laptop X1</h3>
-                  <p>RTX 3060 • 16GB RAM • 1TB SSD</p>
-                  <p>
-                    A gaming Laptop with ton's of Features fro Smooth Features{" "}
-                  </p>
-                  <h3>$ 299</h3>
-                </div>
-              </div>
-
-              <div className="wish-buttonsall">
-                <div className="wishbtns-upper">
-                  <div className="bin">
-                    <p className="wishlist-iconlast">🗑️</p>
-                    <p>Remove</p>
-                  </div>
-
-                  <div className="adjust">
-                    <p className="wishlist-iconlast">✥</p>
-                    <p>Adjust</p>
-                  </div>
-                </div>
-
-                <div className="wishbtns-lower">
-                  <button>Add to cart</button>
-                </div>
-              </div>
-            </div>
-            <hr style={{ color: "1px solid grey", width: "100%" }} />
-            {/* -----------111111111111111111111--------------------- */}
+                <hr style={{ color: "1px solid grey", width: "100%" }} />
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </div>
