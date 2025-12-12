@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useAuth } from "../context/userContext.js";
 
 import {
   removeFromCart,
@@ -18,6 +19,8 @@ const Cartpage = () => {
     0
   );
 
+  const { userData, currentUser, logout } = useAuth();
+
   return (
     <div className="Cartpg-mainbox">
       <div className="Cartpg-secondl">
@@ -26,16 +29,58 @@ const Cartpage = () => {
           <p>{totalItems} Items in your Cart</p>
         </div>
         <div className="cartpg-address">
-          <div className="address-boxl">
+          {/* <div className="address-boxl">
             <p>
               <strong>Deliver to :</strong> Miraj Sk
             </p>
             <p>Pune 412101</p>
+          </div> */}
+          <div className="address-boxl">
+            {currentUser ? (
+              <>
+                <p>
+                  <strong>Deliver to : </strong> {userData?.fullName}
+                </p>
+
+                <p>
+                  <strong>Address : </strong>
+                  {userData?.address}
+                </p>
+              </>
+            ) : (
+              <>
+                <p>
+                  <strong>Deliver to :</strong>
+                </p>
+                <p>Not Logged In</p>
+              </>
+            )}
           </div>
 
-          <div className="address-changebtn">
+          {/* <div className="address-changebtn">
             <button className="changebtn-cart">Change</button>
-          </div>
+          </div> */}
+
+          {currentUser ? (
+            <div className="address-changebtn">
+              <button className="changebtn-cart">Change</button>
+            </div>
+          ) : (
+            <div className="address-changebtn">
+              <button
+                className="changebtn-cartdisabled"
+                // disabled={true}
+                style={{
+                  cursor: "not-allowed",
+                  opacity: 0.6,
+                  width: "65%",
+                  height: "50%",
+                }}
+              >
+                Change
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="products-addedpg">

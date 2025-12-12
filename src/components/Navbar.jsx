@@ -8,11 +8,13 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { WishlistContext } from "../context/Wishlistcontext.js";
+import { useAuth } from "../context/userContext.js";
 
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const { wishlist } = useContext(WishlistContext);
+  const { userData, currentUser, logout, login } = useAuth();
 
   return (
     <div>
@@ -60,26 +62,49 @@ const Navbar = () => {
               alignItems: "center",
             }}
           >
-            <FontAwesomeIcon
-              icon={faUser}
-              style={{
-                marginRight: "0.3rem",
-                fontSize: "25px",
-                cursor: "pointer",
-              }}
-            />
+            {currentUser ? (
+              <>
+                <Link
+                  className="log-link"
+                  style={{
+                    fontSize: "20px",
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    marginRight: "20px",
+                  }}
+                  onClick={logout}
+                >
+                  Log out
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  className="log-link"
+                  to="login"
+                  style={{
+                    fontSize: "20px",
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    marginRight: "20px",
+                  }}
+                >
+                  Log In
+                </Link>
 
-            <Link
-              className="log-link"
-              to="login"
-              style={{
-                fontSize: "20px",
-                cursor: "pointer",
-                textDecoration: "none",
-              }}
-            >
-              Log In
-            </Link>
+                <Link
+                  to="/register"
+                  className="log-link"
+                  style={{
+                    fontSize: "20px",
+                    cursor: "pointer",
+                    textDecoration: "none",
+                  }}
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </div>
 
           <div
@@ -126,7 +151,6 @@ const Navbar = () => {
               <span style={{ fontSize: "20px", width: "31px" }}>
                 {totalItems}
               </span>
-              {/* <span style={{ fontSize: "20px" }}>0</span> */}
             </div>
           </div>
         </div>

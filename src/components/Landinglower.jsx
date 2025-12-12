@@ -70,7 +70,7 @@ const Landinglower = () => {
             </div>
 
             <div className="lowerlandinf-btn">
-              <Link to="mobiles">
+              <Link to="/mobiles">
                 <button
                   className="lwlanding-btn"
                   style={{
@@ -131,7 +131,7 @@ const Landinglower = () => {
             </div>
 
             <div className="lowerlandinf-btn">
-              <Link to="headphone">
+              <Link to="/headphone">
                 <button
                   className="lwlanding-btn"
                   style={{

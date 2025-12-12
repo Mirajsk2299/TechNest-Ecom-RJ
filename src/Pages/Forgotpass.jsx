@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/userContext.js";
 
 const Forgotpass = () => {
+  const [email, setEmail] = useState("");
+  const { resetPassword } = useAuth();
+
+  const handleReset = async () => {
+    try {
+      await resetPassword(email);
+      alert("Password reset email sent! Check your Inbox / Spam");
+    } catch (err) {
+      alert(err.message);
+    }
+  };
   return (
     <div className="forgotpg-mainbox">
-      <div className="forgotpg-second">    
+      <div className="forgotpg-second">
         <div className="forgot-container">
           <div className="forgot-box">
             <h2>Forgot Password</h2>
@@ -14,9 +26,16 @@ const Forgotpass = () => {
             </p>
 
             <label>Email</label>
-            <input type="email" placeholder="Enter Email" />
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Enter Email"
+            />
 
-            <button className="forgot-main-btn">Send Reset Link</button>
+            <button className="forgot-main-btn" onClick={handleReset}>
+              Send Reset Link
+            </button>
 
             <div className="bottom-row">
               <Link to="/login">

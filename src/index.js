@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import "@fontsource/montserrat";
 import { Provider } from "react-redux";
 import { store } from "../src/redux/store";
+import { AuthProvider } from "./context/userContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,7 +17,9 @@ root.render(
       <BrowserRouter>
         <ButtonsProvider>
           <WishlistProvider>
-            <App />
+            <AuthProvider>
+              <App />
+            </AuthProvider>
           </WishlistProvider>
         </ButtonsProvider>
       </BrowserRouter>

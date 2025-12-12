@@ -53,7 +53,7 @@ const Landingpg = () => {
           </p>
         </div>
         <div className="landingbtn-box">
-          <Link to="computers">
+          <Link to="/computers">
             <button className="landing-btn">Shop Now</button>
           </Link>
         </div>
