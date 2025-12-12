@@ -19,7 +19,7 @@ const Cartpage = () => {
     0
   );
 
-  const { userData, currentUser, logout } = useAuth();
+  const { userData, currentUser } = useAuth();
 
   return (
     <div className="Cartpg-mainbox">

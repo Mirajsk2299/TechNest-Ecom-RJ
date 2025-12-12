@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../Styles/AllComponents.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+// import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
@@ -14,7 +14,7 @@ const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const { wishlist } = useContext(WishlistContext);
-  const { userData, currentUser, logout, login } = useAuth();
+  const { currentUser, logout } = useAuth();
 
   return (
     <div>
