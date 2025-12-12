@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   removeFromCart,
   increaseQty,
@@ -8,13 +9,10 @@ import {
 
 const Cartpage = () => {
   const dispatch = useDispatch();
-
   const cartItems = useSelector((state) => state.cart.items);
 
-  // Total Quantity
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
-  // Total Amount
   const totalAmount = cartItems.reduce(
     (acc, item) => acc + item.Price * item.quantity,
     0
@@ -25,18 +23,14 @@ const Cartpage = () => {
       <div className="Cartpg-secondl">
         <div className="cartpg-headder">
           <h3>My Shopping Cart </h3>
-          <p>
-            {totalItems} Items in your Cart{" "}
-            {/* <span>{totalItems === 0 ? " / Your Cart is Empty" : ""}</span> */}
-          </p>
+          <p>{totalItems} Items in your Cart</p>
         </div>
-
         <div className="cartpg-address">
           <div className="address-boxl">
             <p>
-              <strong>Deliver to :</strong> Miraj Shaikh
+              <strong>Deliver to :</strong> Miraj Sk
             </p>
-            <p>Ho no 201, Thomas Colony, Pune</p>
+            <p>Pune 412101</p>
           </div>
 
           <div className="address-changebtn">
@@ -59,11 +53,10 @@ const Cartpage = () => {
           </div>
 
           {/* ------- CART ITEMS ------- */}
-
           {cartItems.map((item) => (
-            <React.Fragment>
-              <div className="single-mainproductsrow" key={item.id}>
-                {/* ---- PRODUCT DETAILS ---- */}
+            <React.Fragment key={item.id}>
+              <div className="single-mainproductsrow">
+                {/* PRODUCT DETAILS */}
                 <div className="singleproduct-maindetails">
                   <div className="cardpg-imgmain">
                     <div className="lastbox-descripimg">
@@ -78,7 +71,7 @@ const Cartpage = () => {
                   </div>
                 </div>
 
-                {/* ---- INCREASE / DECREASE / REMOVE ---- */}
+                {/* INCREASE / DECREASE / REMOVE */}
                 <div className="singleproduct-maincountremove">
                   <div className="incre-decre">
                     <button
@@ -108,7 +101,7 @@ const Cartpage = () => {
                   </div>
                 </div>
 
-                {/* ---- TOTAL PRICE ---- */}
+                {/* TOTAL PRICE */}
                 <div className="singleproduct-maintotalprice">
                   <h4>₹ {item.Price * item.quantity}</h4>
                 </div>
@@ -117,27 +110,19 @@ const Cartpage = () => {
             </React.Fragment>
           ))}
 
-          {/* ------- If Empty ------- */}
+          {/* ------- EMPTY CART ------- */}
           {cartItems.length === 0 && (
-            <h3
-              style={{
-                textAlign: "center",
-                margin: "20px",
-                marginTop: "100px",
-              }}
-            >
+            <h3 style={{ textAlign: "center", marginTop: "100px" }}>
               Your Cart is Empty
             </h3>
           )}
         </div>
       </div>
 
-      {/* ------- PRICE SUMMARY ------- */}
+      {/* PRICE SUMMARY */}
       <div className="Cartpg-secondr">
         <div className="secondr-upper">
-          <div className="upperbox-headingname">
-            <h2>Price Details</h2>
-          </div>
+          <h2>Price Details</h2>
 
           <div className="upperheading-second">
             <p>
@@ -160,7 +145,7 @@ const Cartpage = () => {
 
           <div className="upperheading-second">
             <h3>Total Amount</h3>
-            <p>₹ {totalAmount + 0}</p>
+            <p>₹ {totalAmount}</p>
           </div>
 
           <hr />

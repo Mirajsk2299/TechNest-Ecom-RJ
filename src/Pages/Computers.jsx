@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
 import "../Styles/Pages.css";
 import { ButtonsContext } from "../context/Buttonscontext.js";
+import { WishlistContext } from "../context/Wishlistcontext.js";
 import Allproducts from "../ProductsData/Allproducts.js";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/addtocart/addtocartSlice.js";
+
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+} from "../redux/addtocart/addtocartSlice.js";
 
 const Computers = () => {
   const computers = Allproducts.filter(
@@ -13,7 +18,15 @@ const Computers = () => {
   const { quickViewProduct, openQuickView, closeQuickView } =
     useContext(ButtonsContext);
 
+  const { addToWishlist, removeFromWishlist, isInWishlist } =
+    useContext(WishlistContext);
+
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const isInCart = quickViewProduct
+    ? cartItems.some((item) => item.id === quickViewProduct.id)
+    : false;
 
   return (
     <div className="computer-pg">
@@ -24,18 +37,18 @@ const Computers = () => {
         </div>
 
         <div className="sort-count">
-          <p>8 Products</p>
+          <p>{computers.length} Products</p>
           <p>Sort by: Recommended</p>
         </div>
       </div>
 
       <div className="computer-second">
-        {/* ------------ side bar */}
+        {/* Sidebar */}
         <div className="side-bar">
           <p>Filters</p>
         </div>
-        {/* ------------------------------- */}
 
+        {/* Product cards */}
         <div className="for-cards">
           {computers.map((product) => (
             <div
@@ -44,8 +57,20 @@ const Computers = () => {
               onClick={() => openQuickView(product)}
             >
               <div className="wishlist-logo">
-                <button className="wishlogo-btn">
-                  ❤️ <br /> <p className="wishlist-word"> Wishlist</p>
+                <button
+                  className="wishlogo-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    isInWishlist(product.id)
+                      ? removeFromWishlist(product.id)
+                      : addToWishlist(product);
+                  }}
+                >
+                  {isInWishlist(product.id) ? "💖" : "🤍"}
+                  <br />
+                  <p className="wishlist-word">
+                    {isInWishlist(product.id) ? " Remove" : "Wishlist"}
+                  </p>
                 </button>
               </div>
 
@@ -70,7 +95,8 @@ const Computers = () => {
           ))}
         </div>
       </div>
-      {/* quickview card  start */}
+
+      {/* Quick View */}
       {quickViewProduct && (
         <div className="quickview-overlay" onClick={closeQuickView}>
           <div
@@ -95,21 +121,24 @@ const Computers = () => {
                   {quickViewProduct.description}
                 </p>
                 <h3 className="quickview-Price">₹{quickViewProduct.Price}</h3>
+
                 <div className="quickview-buttons">
                   <button
                     className="quickview-allbuttons"
-                    onClick={() => {
-                      dispatch(addToCart(quickViewProduct));
-                      // closeQuickView();
-                    }}
+                    onClick={() =>
+                      isInCart
+                        ? dispatch(removeFromCart(quickViewProduct.id))
+                        : dispatch(addToCart(quickViewProduct))
+                    }
                   >
-                    Add to cart
+                    {isInCart ? "Remove / Cart" : "Add to Cart"}
                   </button>
 
                   <button className="quickview-allbuttons">Buy Now</button>
                 </div>
               </div>
             </div>
+
             <div className="quickview-closebtn">
               <button className="close-btn" onClick={closeQuickView}>
                 Close
@@ -118,7 +147,6 @@ const Computers = () => {
           </div>
         </div>
       )}
-      {/* quickview card  end */}
     </div>
   );
 };

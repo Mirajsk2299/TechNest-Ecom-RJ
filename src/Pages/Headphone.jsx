@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
 import "../Styles/Pages.css";
 import { ButtonsContext } from "../context/Buttonscontext.js";
+import { WishlistContext } from "../context/Wishlistcontext.js";
 import Allproducts from "../ProductsData/Allproducts.js";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/addtocart/addtocartSlice.js";
+
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+} from "../redux/addtocart/addtocartSlice.js";
 
 const Headphone = () => {
   const headphone = Allproducts.filter(
@@ -13,7 +18,15 @@ const Headphone = () => {
   const { quickViewProduct, openQuickView, closeQuickView } =
     useContext(ButtonsContext);
 
+  const { addToWishlist, removeFromWishlist, isInWishlist } =
+    useContext(WishlistContext);
+
   const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const isInCart = quickViewProduct
+    ? cartItems.some((item) => item.id === quickViewProduct.id)
+    : false;
 
   return (
     <div className="computer-pg">
@@ -48,8 +61,20 @@ const Headphone = () => {
               onClick={() => openQuickView(product)}
             >
               <div className="wishlist-logo">
-                <button className="wishlogo-btn">
-                  ❤️ <br /> <p className="wishlist-word"> Wishlist</p>
+                <button
+                  className="wishlogo-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    isInWishlist(product.id)
+                      ? removeFromWishlist(product.id)
+                      : addToWishlist(product);
+                  }}
+                >
+                  {isInWishlist(product.id) ? "💖" : "🤍"}
+                  <br />
+                  <p className="wishlist-word">
+                    {isInWishlist(product.id) ? " Remove" : "Wishlist"}
+                  </p>
                 </button>
               </div>
 
@@ -80,7 +105,7 @@ const Headphone = () => {
         <div className="quickview-overlay" onClick={closeQuickView}>
           <div
             className="quickview-second"
-            onClick={(e) => e.stopPropagation()} // prevent overlay click
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="quickview-box">
               <div className="quickview-imgbox">
@@ -100,17 +125,24 @@ const Headphone = () => {
                   {quickViewProduct.description}
                 </p>
                 <h3 className="quickview-Price">₹{quickViewProduct.Price}</h3>
+
                 <div className="quickview-buttons">
                   <button
                     className="quickview-allbuttons"
-                    onClick={() => dispatch(addToCart(quickViewProduct))} // keep quick view open
+                    onClick={() =>
+                      isInCart
+                        ? dispatch(removeFromCart(quickViewProduct.id))
+                        : dispatch(addToCart(quickViewProduct))
+                    }
                   >
-                    Add to cart
+                    {isInCart ? "Remove / Cart" : "Add to Cart"}
                   </button>
+
                   <button className="quickview-allbuttons">Buy Now</button>
                 </div>
               </div>
             </div>
+
             <div className="quickview-closebtn">
               <button className="close-btn" onClick={closeQuickView}>
                 Close
