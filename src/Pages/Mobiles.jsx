@@ -22,12 +22,8 @@ const Mobiles = () => {
     (item) => item.category.toLowerCase() === "mobile"
   );
 
-  const {
-    quickViewProduct,
-    openQuickView,
-    closeQuickView,
-    addToCartAndNavigate,
-  } = useContext(ButtonsContext);
+  const { quickViewProduct, openQuickView, closeQuickView } =
+    useContext(ButtonsContext);
 
   const { addToWishlist, removeFromWishlist, isInWishlist } =
     useContext(WishlistContext);

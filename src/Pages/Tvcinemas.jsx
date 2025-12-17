@@ -18,12 +18,8 @@ const Tvcinemas = () => {
     (item) => item.category.toLowerCase() === "homecinemas"
   );
 
-  const {
-    quickViewProduct,
-    openQuickView,
-    closeQuickView,
-    addToCartAndNavigate,
-  } = useContext(ButtonsContext);
+  const { quickViewProduct, openQuickView, closeQuickView } =
+    useContext(ButtonsContext);
 
   const { addToWishlist, removeFromWishlist, isInWishlist } =
     useContext(WishlistContext);

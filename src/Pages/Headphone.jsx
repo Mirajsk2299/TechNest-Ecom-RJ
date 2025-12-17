@@ -22,12 +22,8 @@ const Headphone = () => {
     (item) => item.category.toLowerCase() === "headphone"
   );
 
-  const {
-    quickViewProduct,
-    openQuickView,
-    closeQuickView,
-    addToCartAndNavigate,
-  } = useContext(ButtonsContext);
+  const { quickViewProduct, openQuickView, closeQuickView } =
+    useContext(ButtonsContext);
 
   const { addToWishlist, removeFromWishlist, isInWishlist } =
     useContext(WishlistContext);

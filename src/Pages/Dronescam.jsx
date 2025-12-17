@@ -22,12 +22,8 @@ const Dronescam = () => {
 
   const { buyNow } = useContext(BuyNowContext);
 
-  const {
-    quickViewProduct,
-    openQuickView,
-    closeQuickView,
-    addToCartAndNavigate,
-  } = useContext(ButtonsContext);
+  const { quickViewProduct, openQuickView, closeQuickView } =
+    useContext(ButtonsContext);
 
   const { addToWishlist, removeFromWishlist, isInWishlist } =
     useContext(WishlistContext);

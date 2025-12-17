@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "../Styles/Pages.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 import { ButtonsContext } from "../context/Buttonscontext.js";
 import { WishlistContext } from "../context/Wishlistcontext.js";
@@ -15,7 +15,7 @@ import {
 
 const Tablets = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { buyNow } = useContext(BuyNowContext);
 

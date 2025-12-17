@@ -10,7 +10,7 @@ import {
 } from "../redux/addtocart/addtocartSlice.js";
 
 const Wishlistpage = () => {
-  const { userData, currentUser } = useAuth();
+  const { userData } = useAuth();
 
   const { wishlist, removeFromWishlist } = useContext(WishlistContext);
 
