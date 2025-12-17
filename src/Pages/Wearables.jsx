@@ -3,6 +3,7 @@ import "../Styles/Pages.css";
 import { ButtonsContext } from "../context/Buttonscontext.js";
 import { WishlistContext } from "../context/Wishlistcontext.js";
 import Allproducts from "../ProductsData/Allproducts.js";
+import { BuyNowContext } from "../context/buynowContext.js";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,6 +12,8 @@ import {
 } from "../redux/addtocart/addtocartSlice.js";
 
 const Wearables = () => {
+  const { buyNow } = useContext(BuyNowContext);
+
   const wearables = Allproducts.filter(
     (item) => item.category.toLowerCase() === "wearables"
   );
@@ -44,7 +47,7 @@ const Wearables = () => {
 
       <div className="computer-second">
         <div className="side-bar">
-          <p>Filters</p>
+          <p>Features Coming Soon</p>
         </div>
 
         <div className="for-cards">
@@ -129,7 +132,9 @@ const Wearables = () => {
                   >
                     {isInCart ? "Remove / Cart" : "Add to Cart"}
                   </button>
-                  <button className="quickview-allbuttons">Buy Now</button>
+                  <button className="quickview-allbuttons" onClick={buyNow}>
+                    Buy Now
+                  </button>
                 </div>
               </div>
             </div>

@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "../Styles/Pages.css";
 import { ButtonsContext } from "../context/Buttonscontext.js";
 import { WishlistContext } from "../context/Wishlistcontext.js";
 import Allproducts from "../ProductsData/Allproducts.js";
+import { BuyNowContext } from "../context/buynowContext.js";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,6 +12,12 @@ import {
 } from "../redux/addtocart/addtocartSlice.js";
 
 const Computers = () => {
+  const { buyNow } = useContext(BuyNowContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const computers = Allproducts.filter(
     (item) => item.category.toLowerCase() === "computers"
   );
@@ -45,7 +52,7 @@ const Computers = () => {
       <div className="computer-second">
         {/* Sidebar */}
         <div className="side-bar">
-          <p>Filters</p>
+          <p>Features Coming Soon</p>
         </div>
 
         {/* Product cards */}
@@ -134,7 +141,9 @@ const Computers = () => {
                     {isInCart ? "Remove / Cart" : "Add to Cart"}
                   </button>
 
-                  <button className="quickview-allbuttons">Buy Now</button>
+                  <button className="quickview-allbuttons" onClick={buyNow}>
+                    Buy Now
+                  </button>
                 </div>
               </div>
             </div>

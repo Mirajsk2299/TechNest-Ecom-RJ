@@ -3,7 +3,8 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCAwTxKOqITZNlRzrWEEWlE1hkH2DDdmS0",
+  // apiKey: "AIzaSyCAwTxKOqITZNlRzrWEEWlE1hkH2DDdmS0",
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
   authDomain: "technest-login-43e22.firebaseapp.com",
   projectId: "technest-login-43e22",
   storageBucket: "technest-login-43e22.firebasestorage.app",

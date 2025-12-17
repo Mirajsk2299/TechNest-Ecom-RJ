@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const ButtonsContext = createContext();
-
 export const ButtonsProvider = ({ children }) => {
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const navigatehome = useNavigate();
@@ -21,7 +20,12 @@ export const ButtonsProvider = ({ children }) => {
 
   return (
     <ButtonsContext.Provider
-      value={{ quickViewProduct, openQuickView, closeQuickView, goTohome }}
+      value={{
+        quickViewProduct,
+        openQuickView,
+        closeQuickView,
+        goTohome,
+      }}
     >
       {children}
     </ButtonsContext.Provider>

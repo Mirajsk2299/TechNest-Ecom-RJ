@@ -10,6 +10,7 @@ const Forgotpass = () => {
     try {
       await resetPassword(email);
       alert("Password reset email sent! Check your Inbox / Spam");
+      setEmail("");
     } catch (err) {
       alert(err.message);
     }

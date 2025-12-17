@@ -4,6 +4,7 @@ import { ButtonsContext } from "../context/Buttonscontext.js";
 import { WishlistContext } from "../context/Wishlistcontext.js";
 import { useSelector, useDispatch } from "react-redux";
 import Allproducts from "../ProductsData/Allproducts.js";
+import { BuyNowContext } from "../context/buynowContext.js";
 
 import {
   addToCart,
@@ -11,12 +12,18 @@ import {
 } from "../redux/addtocart/addtocartSlice.js";
 
 const Tvcinemas = () => {
+  const { buyNow } = useContext(BuyNowContext);
+
   const homecinemas = Allproducts.filter(
     (item) => item.category.toLowerCase() === "homecinemas"
   );
 
-  const { quickViewProduct, openQuickView, closeQuickView } =
-    useContext(ButtonsContext);
+  const {
+    quickViewProduct,
+    openQuickView,
+    closeQuickView,
+    addToCartAndNavigate,
+  } = useContext(ButtonsContext);
 
   const { addToWishlist, removeFromWishlist, isInWishlist } =
     useContext(WishlistContext);
@@ -46,7 +53,7 @@ const Tvcinemas = () => {
       <div className="computer-second">
         {/* Sidebar */}
         <div className="side-bar">
-          <p>Filters</p>
+          <p>Features Coming Soon</p>
         </div>
 
         {/* Product Cards */}
@@ -138,7 +145,9 @@ const Tvcinemas = () => {
                     {isInCart ? "Remove / Cart" : "Add to Cart"}
                   </button>
 
-                  <button className="quickview-allbuttons">Buy Now</button>
+                  <button className="quickview-allbuttons" onClick={buyNow}>
+                    Buy Now
+                  </button>
                 </div>
               </div>
             </div>

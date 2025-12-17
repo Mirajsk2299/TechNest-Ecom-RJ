@@ -34,6 +34,7 @@ import Wishlistpage from "../src/Pages/Wishlistpage.jsx";
 import Contactus from "../src/Pages/Contactus.jsx";
 import Bestsellerpage from "../src/Pages/Bestsellerpage.jsx";
 import OnsalePage from "../src/Pages/OnsalePage.jsx";
+import Myorders from "../src/Pages/Myorders.jsx";
 
 function App() {
   return (
@@ -79,6 +80,7 @@ function App() {
         <Route path="/forgotpass" element={<Forgotpass />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/onsalePage" element={<OnsalePage />} />
+        <Route path="/myorders" element={<Myorders />} />
       </Routes>
 
       <Helpcenter />

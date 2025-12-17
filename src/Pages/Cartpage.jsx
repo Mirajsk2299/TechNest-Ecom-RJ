@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth } from "../context/userContext.js";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   removeFromCart,
@@ -9,6 +10,8 @@ import {
 } from "../redux/addtocart/addtocartSlice.js";
 
 const Cartpage = () => {
+  const ordernavigate = useNavigate();
+
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
@@ -20,6 +23,10 @@ const Cartpage = () => {
   );
 
   const { userData, currentUser } = useAuth();
+
+  const myordernavi = () => {
+    ordernavigate("/myorders");
+  };
 
   return (
     <div className="Cartpg-mainbox">
@@ -203,7 +210,12 @@ const Cartpage = () => {
         </div>
 
         <div className="palce-orderbtn">
-          <button disabled={cartItems.length === 0}>Place Order</button>
+          <button className="order-buttons" onClick={myordernavi}>
+            My Orders
+          </button>
+          <button className="order-buttons" disabled={cartItems.length === 0}>
+            Place Order
+          </button>
         </div>
 
         <div className="securepayment-text">

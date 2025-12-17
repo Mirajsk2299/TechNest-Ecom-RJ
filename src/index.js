@@ -9,6 +9,8 @@ import "@fontsource/montserrat";
 import { Provider } from "react-redux";
 import { store } from "../src/redux/store";
 import { AuthProvider } from "./context/userContext";
+import ContactProvider from "./context/contactContext";
+import BuyNowProvider from "./context/buynowContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,7 +20,11 @@ root.render(
         <ButtonsProvider>
           <WishlistProvider>
             <AuthProvider>
-              <App />
+              <ContactProvider>
+                <BuyNowProvider>
+                  <App />
+                </BuyNowProvider>
+              </ContactProvider>
             </AuthProvider>
           </WishlistProvider>
         </ButtonsProvider>

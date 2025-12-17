@@ -4,6 +4,7 @@ import Allproducts from "../ProductsData/Allproducts.js";
 import { ButtonsContext } from "../context/Buttonscontext.js";
 import { WishlistContext } from "../context/Wishlistcontext.js";
 import { useDispatch, useSelector } from "react-redux";
+import { BuyNowContext } from "../context/buynowContext.js";
 
 import {
   addToCart,
@@ -11,6 +12,8 @@ import {
 } from "../redux/addtocart/addtocartSlice.js";
 
 const Allitems = () => {
+  const { buyNow } = useContext(BuyNowContext);
+
   const { quickViewProduct, openQuickView, closeQuickView } =
     useContext(ButtonsContext);
 
@@ -162,7 +165,9 @@ const Allitems = () => {
                     {isInCart ? "Remove / Cart" : "Add to Cart"}
                   </button>
 
-                  <button className="quickview-allbuttons">Buy Now</button>
+                  <button className="quickview-allbuttons" onClick={buyNow}>
+                    Buy Now
+                  </button>
                 </div>
               </div>
             </div>

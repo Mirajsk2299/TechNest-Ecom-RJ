@@ -2,12 +2,16 @@ import React, { useContext } from "react";
 import masimg from "../assets/urgentimg/logosample.jpg";
 import { WishlistContext } from "../context/Wishlistcontext.js";
 import { useSelector, useDispatch } from "react-redux";
+import { useAuth } from "../context/userContext.js";
+
 import {
   addToCart,
   removeFromCart,
 } from "../redux/addtocart/addtocartSlice.js";
 
 const Wishlistpage = () => {
+  const { userData, currentUser } = useAuth();
+
   const { wishlist, removeFromWishlist } = useContext(WishlistContext);
 
   const dispatch = useDispatch();
@@ -29,7 +33,7 @@ const Wishlistpage = () => {
             </div>
 
             <div className="logohello-hello">
-              <h2>Hello Miraj</h2>
+              <h2>Hello {userData?.fullName}</h2>
             </div>
           </div>
 
