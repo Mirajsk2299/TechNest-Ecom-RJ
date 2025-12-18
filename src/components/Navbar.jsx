@@ -32,7 +32,7 @@ const Navbar = () => {
       >
         <div className="web-name" style={{ marginLeft: "2rem" }}>
           <Link to="/" className="nav-link">
-            <h1 style={{ cursor: "pointer" }}>TechNest </h1>
+            <h1 style={{ cursor: "pointer", color: "black" }}>TechNest </h1>
           </Link>
         </div>
 
@@ -49,8 +49,24 @@ const Navbar = () => {
             <Link to="searchpg" className="nav-link">
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
-                style={{ fontSize: "25px", cursor: "pointer" }}
+                style={{ fontSize: "25px", cursor: "pointer", color: "black" }}
               />
+            </Link>
+          </div>
+
+          <div className="nav-account">
+            <Link
+              to="myprofile"
+              className="log-link"
+              style={{
+                fontSize: "20px",
+                cursor: "pointer",
+                textDecoration: "none",
+                color: "black",
+                // marginRight: "5px",
+              }}
+            >
+              My Profile
             </Link>
           </div>
 
@@ -70,7 +86,7 @@ const Navbar = () => {
                     fontSize: "20px",
                     cursor: "pointer",
                     textDecoration: "none",
-                    marginRight: "20px",
+                    color: "black",
                   }}
                   onClick={logout}
                 >
@@ -87,6 +103,7 @@ const Navbar = () => {
                     cursor: "pointer",
                     textDecoration: "none",
                     marginRight: "20px",
+                    color: "black",
                   }}
                 >
                   Log In
@@ -99,6 +116,7 @@ const Navbar = () => {
                     fontSize: "20px",
                     cursor: "pointer",
                     textDecoration: "none",
+                    color: "black",
                   }}
                 >
                   Register
@@ -126,6 +144,7 @@ const Navbar = () => {
                     marginRight: "0.2rem",
                     fontSize: "25px",
                     cursor: "pointer",
+                    color: "black",
                   }}
                 />
               </Link>
@@ -145,6 +164,7 @@ const Navbar = () => {
                     marginRight: "0.2rem",
                     fontSize: "25px",
                     cursor: "pointer",
+                    color: "black",
                   }}
                 />
               </Link>

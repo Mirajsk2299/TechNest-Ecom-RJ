@@ -55,6 +55,7 @@ export const AuthProvider = ({ children }) => {
     await signOut(auth);
     setUserData(null);
     setCurrentUser(null);
+    // alert("Logged out successfully");
   };
 
   // ---------------------------

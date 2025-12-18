@@ -35,6 +35,10 @@ import Contactus from "../src/Pages/Contactus.jsx";
 import Bestsellerpage from "../src/Pages/Bestsellerpage.jsx";
 import OnsalePage from "../src/Pages/OnsalePage.jsx";
 import Myorders from "../src/Pages/Myorders.jsx";
+import Myprofile from "../src/Pages/Myprofile.jsx";
+import Personaldetails from "../src/minipages/Personaldetails.jsx";
+import Gmailinfo from "../src/minipages/Gmailinfo.jsx";
+import Paninfo from "../src/minipages/Paninfo.jsx";
 
 function App() {
   return (
@@ -81,6 +85,10 @@ function App() {
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/onsalePage" element={<OnsalePage />} />
         <Route path="/myorders" element={<Myorders />} />
+        <Route path="/myprofile" element={<Myprofile />} />
+        <Route path="/personaldetails" element={<Personaldetails />} />
+        <Route path="/gmailinfo" element={<Gmailinfo />} />
+        <Route path="/paninfo" element={<Paninfo />} />
       </Routes>
 
       <Helpcenter />

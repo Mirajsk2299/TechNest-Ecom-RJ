@@ -11,6 +11,12 @@ import {
 
 const Cartpage = () => {
   const ordernavigate = useNavigate();
+  const navigate = useNavigate();
+
+  // changeNavigate(/myprofile);
+  const changeNavigate = () => {
+    navigate("/myprofile");
+  };
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
@@ -70,7 +76,9 @@ const Cartpage = () => {
 
           {currentUser ? (
             <div className="address-changebtn">
-              <button className="changebtn-cart">Change</button>
+              <button className="changebtn-cart" onClick={changeNavigate}>
+                Change
+              </button>
             </div>
           ) : (
             <div className="address-changebtn">
@@ -210,9 +218,16 @@ const Cartpage = () => {
         </div>
 
         <div className="palce-orderbtn">
-          <button className="order-buttons" onClick={myordernavi}>
-            My Orders
-          </button>
+          {currentUser ? (
+            <button className="order-buttons" onClick={myordernavi}>
+              My Orders
+            </button>
+          ) : (
+            <button className="order-buttons" disabled>
+              My Orders
+            </button>
+          )}
+
           <button className="order-buttons" disabled={cartItems.length === 0}>
             Place Order
           </button>
