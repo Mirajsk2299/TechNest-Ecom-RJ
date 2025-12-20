@@ -3,7 +3,7 @@ import profile from "../assets/urgentimg/logosample.jpg";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/userContext.js";
 import Personaldetails from "../minipages/Personaldetails";
-import Gmailinfo from "../minipages/Gmailinfo";
+import Changepassmini from "../minipages/Changepassmini";
 import Paninfo from "../minipages/Paninfo";
 
 const Myprofile = () => {
@@ -64,13 +64,13 @@ const Myprofile = () => {
                   className="single-settpara"
                   onClick={() => setPersonalinfo(<Personaldetails />)}
                 >
-                  Profile Information
+                  Profile Settings
                 </p>
               </div>
               <div className="single-settings">
                 <p
                   className="single-settpara"
-                  onClick={() => setPersonalinfo(<Gmailinfo />)}
+                  onClick={() => setPersonalinfo(<Changepassmini />)}
                 >
                   Change Password
                 </p>

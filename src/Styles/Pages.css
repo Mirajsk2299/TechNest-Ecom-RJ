@@ -1317,7 +1317,7 @@
   width: 60%;
   height: 95%;
   background-color: #ffffff;
-  padding: 2%;
+  padding: 1%;
 }
 
 /* Personal Details */
@@ -1360,12 +1360,12 @@
 .maintxt-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .personal-inp {
-  height: 50px;
-  width: 400px;
+  height: 40px;
+  width: 40%;
   font-size: 20px;
   padding: 15px;
 }
@@ -1382,9 +1382,9 @@
 }
 
 .personal-addressinp {
-  height: 80px;
-  width: 400px;
-  font-size: 20px;
+  height: 70px;
+  width: 40%;
+  font-size: 18px;
   padding: 15px;
 }
 
@@ -1429,4 +1429,9 @@
   color: gray;
   opacity: 1;
   cursor: not-allowed;
+}
+
+.personalinfo-box {
+  height: 100%;
+  width: 100%;
 }

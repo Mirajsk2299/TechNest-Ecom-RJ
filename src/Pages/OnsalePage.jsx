@@ -6,7 +6,9 @@ const OnsalePage = () => {
   }, []);
   return (
     <div className="onsalepage-main">
-      <div className="onsalepage-second">Onsalepage</div>
+      <div className="onsalepage-second" style={{ padding: "2%" }}>
+        <h2>Feature Will Be Available Soon</h2>
+      </div>
     </div>
   );
 };

@@ -37,8 +37,9 @@ import OnsalePage from "../src/Pages/OnsalePage.jsx";
 import Myorders from "../src/Pages/Myorders.jsx";
 import Myprofile from "../src/Pages/Myprofile.jsx";
 import Personaldetails from "../src/minipages/Personaldetails.jsx";
-import Gmailinfo from "../src/minipages/Gmailinfo.jsx";
+import Changepassmini from "../src/minipages/Changepassmini.jsx";
 import Paninfo from "../src/minipages/Paninfo.jsx";
+import ScrollTopButton from "../src/Pages/ScrollTopButton.jsx";
 
 function App() {
   return (
@@ -87,10 +88,11 @@ function App() {
         <Route path="/myorders" element={<Myorders />} />
         <Route path="/myprofile" element={<Myprofile />} />
         <Route path="/personaldetails" element={<Personaldetails />} />
-        <Route path="/gmailinfo" element={<Gmailinfo />} />
+        <Route path="/changepassmini" element={<Changepassmini />} />
         <Route path="/paninfo" element={<Paninfo />} />
       </Routes>
 
+      <ScrollTopButton />
       <Helpcenter />
       <Footer />
       <Footerbanks />

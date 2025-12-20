@@ -28,6 +28,8 @@ const Navbar = () => {
           justifyContent: "space-between",
           alignItems: "center",
           padding: "1rem",
+
+          // --------
         }}
       >
         <div className="web-name" style={{ marginLeft: "2rem" }}>

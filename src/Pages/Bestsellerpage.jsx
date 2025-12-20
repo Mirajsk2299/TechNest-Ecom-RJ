@@ -7,7 +7,9 @@ const Bestsellerpage = () => {
 
   return (
     <div className="bestsellerpg-main">
-      <div className="bestsellerpg-second">Bestsellerpage</div>
+      <div className="bestsellerpg-second" style={{ padding: "2%" }}>
+        <h2>Feature Will Be Available Soon</h2>
+      </div>
     </div>
   );
 };

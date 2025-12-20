@@ -193,7 +193,7 @@ const Cartpage = () => {
 
           <div className="upperheading-second">
             <p>Discount</p>
-            <p>₹ 00</p>
+            <p>₹ 0</p>
           </div>
 
           <div className="upperheading-second">
