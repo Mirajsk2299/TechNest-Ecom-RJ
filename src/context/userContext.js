@@ -55,7 +55,8 @@ export const AuthProvider = ({ children }) => {
     await signOut(auth);
     setUserData(null);
     setCurrentUser(null);
-    window.location.reload();
+        window.location.href = "/";
+
     // alert("Logged out successfully");
   };
 
